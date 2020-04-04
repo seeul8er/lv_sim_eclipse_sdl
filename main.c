@@ -12,6 +12,8 @@
 #include <unistd.h>
 #define SDL_MAIN_HANDLED        /*To fix SDL's "undefined reference to WinMain" issue*/
 #include <SDL2/SDL.h>
+#include <lv_examples/lv_apps/sysmon/sysmon.h>
+#include <RepPanel/reppanel.h>
 #include "lvgl/lvgl.h"
 #include "lv_drivers/display/monitor.h"
 #include "lv_drivers/indev/mouse.h"
@@ -48,6 +50,17 @@ static void memory_monitor(lv_task_t * param);
  *  STATIC VARIABLES
  **********************/
 
+reprap_tool_t reprap_tools[MAX_NUM_TOOLS];
+reprap_bed_t reprap_bed;
+reprap_tool_poss_temps_t reprap_tool_poss_temps;
+reprap_bed_poss_temps_t reprap_bed_poss_temps;
+double reprap_mcu_temp = 0;
+char reprap_firmware_name[100];
+char reprap_firmware_version[5];
+char *reprap_macro_names[MAX_NUM_MACROS];
+double reprap_extruder_amounts[NUM_TEMPS_BUFF];
+double reprap_extruder_feedrates[NUM_TEMPS_BUFF];
+
 /**********************
  *      MACROS
  **********************/
@@ -68,7 +81,7 @@ int main(int argc, char ** argv)
     hal_init();
 
     /*Create a demo*/
-    demo_create();
+    rep_panel_ui_create();
 
     /*Try the benchmark to see how fast your GUI is*/
     //    benchmark_create();
@@ -80,6 +93,7 @@ int main(int argc, char ** argv)
     /*Try the touchpad-less navigation (use the Tab and Arrow keys or the Mousewheel)*/
     //    lv_test_group_1();
 
+    init_reprap_buffers();
 
     while(1) {
         /* Periodically call the lv_task handler.

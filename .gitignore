@@ -5,3 +5,9 @@ lv_dev_tools/
 demo
 .pydevproject
 /.metadata/
+
+.idea/
+
+cmake-build-debug/
+
+bin/

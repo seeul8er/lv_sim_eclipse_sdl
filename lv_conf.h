@@ -29,7 +29,7 @@
  * - 16: RGB565
  * - 32: ARGB8888
  */
-#define LV_COLOR_DEPTH     32
+#define LV_COLOR_DEPTH     16
 
 /* Swap the 2 bytes of RGB565 color.
  * Useful if the display has a 8 bit interface (e.g. SPI)*/
@@ -289,6 +289,7 @@ typedef void * lv_indev_drv_user_data_t;            /*Type of user data in the i
 #define LV_USE_THEME_MATERIAL   1   /*Flat theme with bold colors and light shadows*/
 #define LV_USE_THEME_ZEN        1   /*Peaceful, mainly light theme */
 #define LV_USE_THEME_NEMO       1   /*Water-like theme based on the movie "Finding Nemo"*/
+#define LV_USE_THEME_REP_PANEL_LIGHT    1
 
 /*==================
  *    FONT USAGE
@@ -304,12 +305,12 @@ typedef void * lv_indev_drv_user_data_t;            /*Type of user data in the i
  * https://fonts.google.com/specimen/Roboto  */
 #define LV_FONT_ROBOTO_12       1
 #define LV_FONT_ROBOTO_16       1
-#define LV_FONT_ROBOTO_22       1
+#define LV_FONT_ROBOTO_22       0
 #define LV_FONT_ROBOTO_28       1
 
 /* Demonstrate special features */
-#define LV_FONT_ROBOTO_12_SUBPX 1
-#define LV_FONT_ROBOTO_28_COMPRESSED 1  /*bpp = 3*/
+#define LV_FONT_ROBOTO_12_SUBPX 0
+#define LV_FONT_ROBOTO_28_COMPRESSED 0  /*bpp = 3*/
 
 /*Pixel perfect monospace font
  * http://pelulamu.net/unscii/ */
@@ -321,7 +322,16 @@ typedef void * lv_indev_drv_user_data_t;            /*Type of user data in the i
  * #define LV_FONT_CUSTOM_DECLARE LV_FONT_DECLARE(my_font_1) \
  *                                LV_FONT_DECLARE(my_font_2)
  */
-#define LV_FONT_CUSTOM_DECLARE
+#define LV_FONT_CUSTOM_DECLARE  LV_FONT_DECLARE(reppanel_font_roboto_light_36) \
+                                LV_FONT_DECLARE(reppanel_font_roboto_bold_24) \
+                                LV_FONT_DECLARE(reppanel_font_roboto_bold_18) \
+                                LV_FONT_DECLARE(reppanel_font_roboto_light_26) \
+                                LV_FONT_DECLARE(reppanel_font_roboto_light_36) \
+                                LV_FONT_DECLARE(reppanel_font_roboto_regular_22) \
+                                LV_FONT_DECLARE(reppanel_font_roboto_regular_26) \
+                                LV_FONT_DECLARE(reppanel_font_roboto_thin_numeric_160) \
+                                LV_FONT_DECLARE(reppanel_font_roboto_regular_percent_40) \
+                                LV_FONT_DECLARE(reppanel_font_roboto_bold_16)
 
 /*Always set a default font from the built-in fonts*/
 #define LV_FONT_DEFAULT        &lv_font_roboto_16
