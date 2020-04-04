@@ -1,4 +1,19 @@
-# Simulator project for LittlevGL embedded GUI Library
+# Simulator project for RepPanel embedded GUI
+
+**BASED ON: Simulator project for LittlevGL embedded GUI Library**  
+Simulates the [RepPanel GUI](https://github.com/seeul8er/RepPanel_ESP32) on a desktop development maching for easier & faster testing.
+
+To compile & run make sure you have all dependencies installed. Then run:
+
+```C
+cmake .
+make
+./bin/main
+```
+
+Also works from a IDEs like CLion and Eclipse.
+
+## User GUI on LittlevGL Simulator
 
 The [LittlevGL](https://github.com/littlevgl/lvgl) is written mainly for microcontrollers and embedded systems however you can run the library **on your PC** as well without any embedded hardware. The code written on PC can be simply copied when your are using an embedded system.
 
@@ -33,7 +48,7 @@ On Linux you can install it via terminal:
 sudo apt-get update && sudo apt-get install -y build-essential libsdl2-dev
 ```
 
-### Install Eclipse CDT
+### Install Eclipse CDT or get CLion
 Download and install Eclipse CDT from  http://www.eclipse.org/cdt/
 
 ### Import the PC simulator project
@@ -65,16 +80,3 @@ xhost +
 docker run -e DISPLAY=$DISPLAY -v /tmp/.X11-unix/:/tmp/.X11-unix:ro -t lvgl_simulator
 ```
 
-## Contributing
-1. Fork it!
-2. Create your feature branch: `git checkout -b my-new-feature`
-3. Commit your changes: `git commit -am 'Add some feature'`
-4. Push to the branch: `git push origin my-new-feature`
-5. Submit a pull request!
-
-If you find an issue, please report it via GitHub!
-
-## Donate
-If you are pleased with the graphics library and found it useful pleas support its further development:
-
-[![Donate](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=LWHHAQYZMRQJS)
