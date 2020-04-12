@@ -13,6 +13,7 @@ char get_temp_unit();
 void init_reprap_buffers();
 
 lv_obj_t * create_button(lv_obj_t *parent, lv_obj_t *button_pnt, char *text, void *event_handler);
+void _duet_show_dialog(char *title, char *msg);
 void RepPanelLogE(char *tag, char *msg);
 void RepPanelLogW(char *tag, char *msg);
 void RepPanelLogI(char *tag, char *msg);

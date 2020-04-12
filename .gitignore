@@ -11,3 +11,11 @@ demo
 cmake-build-debug/
 
 bin/
+
+CMakeCache.txt
+
+cmake_install.cmake
+
+Makefile
+
+CMakeFiles/
