@@ -38,8 +38,6 @@ Clone the PC project and the related sub modules:
 git clone --recursive https://github.com/seeul8er/RepPanel_sim.git
 ```
 
-or download it as zip [here](https://github.com/littlevgl/pc_simulator_sdl_eclipse/archive/dev-6.0.zip).
-
 ### Install SDL
 You can download SDL from https://www.libsdl.org/
 
