@@ -19,3 +19,13 @@ cmake_install.cmake
 Makefile
 
 CMakeFiles/
+
+.ninja_log
+
+.ninja_deps
+
+build.ninja
+
+.cmake/api/v1/query/
+
+.cmake/api/v1/reply/

@@ -5,10 +5,11 @@
 #include <stdio.h>
 #include <lvgl/src/lv_objx/lv_cont.h>
 #include <lvgl/lvgl.h>
-#include <RepPanel/custom_themes/lv_theme_rep_panel_light.h>
+#include "custom_themes/lv_theme_rep_panel_dark.h"
 #include "reppanel_console.h"
 #include "reppanel.h"
 #include "reppanel_request.h"
+#include "reppanel_helper.h"
 
 
 lv_obj_t *console_container;

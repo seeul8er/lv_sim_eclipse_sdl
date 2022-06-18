@@ -1,5 +1,9 @@
-#ifndef LV_THEME_REP_PANEL_LIGHT_H
-#define LV_THEME_REP_PANEL_LIGHT_H
+//
+// Copyright (c) 2020 Wolfgang Christl
+// Licensed under Apache License, Version 2.0 - https://opensource.org/licenses/Apache-2.0
+
+#ifndef LV_THEME_REP_PANEL_DARK_H
+#define LV_THEME_REP_PANEL_DARK_H
 
 #ifdef __cplusplus
 extern "C" {
@@ -11,7 +15,7 @@ extern "C" {
 #include <lvgl/lvgl.h>
 #include "lv_conf.h"
 
-#if LV_USE_THEME_REP_PANEL_LIGHT
+#if LV_USE_THEME_REP_PANEL_DARK
 
 /*********************
  *      DEFINES
@@ -29,11 +33,11 @@ extern "C" {
 #define REP_PANEL_DARK_DARK_RED LV_COLOR_MAKE(0x63, 0x09, 0x2c)
 #define REP_PANEL_DARK_GREEN LV_COLOR_MAKE(0x4b, 0xb4, 0x5e)
 
-
 #define REP_PANEL_DARK_ACCENT_STR "#b9fa46"
 #define REP_PANEL_DARK_ACCENT_ALT1_STR "#4bb45e"
 #define REP_PANEL_DARK_ACCENT_ALT2_STR   "#274646"
 #define REP_PANEL_DARK_TEXT_STR "#e6e6e6"
+
 /**********************
  *      TYPEDEFS
  **********************/
@@ -48,13 +52,13 @@ extern "C" {
  * @param font pointer to a font (NULL to use the default)
  * @return pointer to the initialized theme
  */
-lv_theme_t * lv_theme_reppanel_light_init(uint16_t hue, lv_font_t * font);
+lv_theme_t *lv_theme_reppanel_dark_init(uint16_t hue, lv_font_t *font);
 
 /**
  * Get a pointer to the theme
  * @return pointer to the theme
  */
-lv_theme_t * lv_theme_get_reppanel_light(void);
+lv_theme_t *lv_theme_get_reppanel_light(void);
 
 /**********************
  *      MACROS
@@ -66,4 +70,4 @@ lv_theme_t * lv_theme_get_reppanel_light(void);
 } /* extern "C" */
 #endif
 
-#endif /*LV_THEME_REP_PANEL_LIGHT_H*/
+#endif /*LV_THEME_REP_PANEL_DARK_H*/

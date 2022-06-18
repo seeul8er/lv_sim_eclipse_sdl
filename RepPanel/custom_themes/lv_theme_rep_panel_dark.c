@@ -1,12 +1,16 @@
+//
+// Copyright (c) 2020 Wolfgang Christl
+// Licensed under Apache License, Version 2.0 - https://opensource.org/licenses/Apache-2.0
+
 /*********************
  *      INCLUDES
  *********************/
 #include <lvgl/src/lv_core/lv_style.h>
 #include <lvgl/lvgl.h>
 #include "lvgl/src/lv_themes/lv_theme.h"
-#include "lv_theme_rep_panel_light.h"
+#include "lv_theme_rep_panel_dark.h"
 
-#if LV_USE_THEME_REP_PANEL_LIGHT
+#if LV_USE_THEME_REP_PANEL_DARK
 
 /*********************
  *      DEFINES
@@ -330,7 +334,7 @@ static void arc_init(void) {
     arc.line.width = 7;
     arc.line.color = lv_color_hsv_to_rgb(_hue, 72, 98);
 
-    /*For prelaoder*/
+    /*For preloader*/
     arc.body.border.width = 7;
     arc.body.border.color = lv_color_hsv_to_rgb(_hue, 30, 20);
     arc.body.padding.left = 0;
@@ -436,10 +440,10 @@ static void btnm_init(void) {
     lv_style_copy(&bg, theme.style.panel);
     bg.body.padding.left = LV_DPI / 20;
     bg.body.padding.right = LV_DPI / 20;
-    bg.body.padding.top = LV_DPI / 18;
-    bg.body.padding.bottom = LV_DPI / 18;
-    bg.body.padding.inner = LV_DPI / 10;
-    bg.text.color = REP_PANEL_DARK_TEXT;
+    bg.body.padding.top = LV_DPI / 20;
+    bg.body.padding.bottom = LV_DPI / 20;
+    bg.body.padding.inner = LV_DPI / 20;
+    bg.text.color = lv_color_hex3(0x555);
 
     lv_style_copy(&rel, theme.style.panel);
     rel.body.border.part = LV_BORDER_FULL;
@@ -459,12 +463,12 @@ static void btnm_init(void) {
 
     lv_style_copy(&tgl_rel, &pr);
     tgl_rel.body.main_color = lv_color_hsv_to_rgb(_hue, 90, 70);
-    tgl_rel.body.grad_color = REP_PANEL_DARK_ACCENT;
+    tgl_rel.body.grad_color = tgl_rel.body.main_color;
     tgl_rel.text.color = lv_color_hsv_to_rgb(_hue, 5, 95);
 
     lv_style_copy(&tgl_pr, &tgl_rel);
     tgl_pr.body.main_color = lv_color_hsv_to_rgb(_hue, 95, 65);
-    tgl_pr.body.grad_color = REP_PANEL_DARK_ACCENT;
+    tgl_pr.body.grad_color = tgl_pr.body.main_color;
     tgl_pr.body.border.width = 0;
 
     lv_style_copy(&ina, &pr);
@@ -644,7 +648,7 @@ static void ddlist_init(void) {
     bg.text.line_space = LV_DPI / 14;
 
     lv_style_copy(&sel, &bg);
-    sel.body.main_color = sel.body.main_color;
+    sel.body.main_color = lv_color_hsv_to_rgb(_hue, 90, 70);
     sel.body.grad_color = sel.body.main_color;
     sel.body.border.width = 0;
     sel.body.shadow.width = 0;
@@ -871,7 +875,7 @@ static void style_mod_edit(lv_group_t *group, lv_style_t *style) {
  * @param font pointer to a font (NULL to use the default)
  * @return pointer to the initialized theme
  */
-lv_theme_t *lv_theme_reppanel_light_init(uint16_t hue, lv_font_t *font) {
+lv_theme_t *lv_theme_reppanel_dark_init(uint16_t hue, lv_font_t *font) {
     if (font == NULL) font = LV_FONT_DEFAULT;
 
     _hue = hue;

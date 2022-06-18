@@ -13,7 +13,6 @@ static char* wifi_pass[20];
 static int temp_unit = 0;   // 0=Celsius, 1=Fahrenheit
 
 static char *tool_names_map[] = {"E0", "E1", "E2", "E3", "E4", "E5", "E6"};
-static char *filament_names = {"TEQStonePLA white\nINNOFIL PLA orange\nABS\nPETG FANCY\nUBS\nPEEK\nUltimaker PEAK\nBASF Wonderstuff"};
 
 static char *bed_tmps_active = "0°C\n40°C\n60°C\n100°C";
 static char *bed_tmps_standby = "0°C\n40°C\n60°C\n100°C";

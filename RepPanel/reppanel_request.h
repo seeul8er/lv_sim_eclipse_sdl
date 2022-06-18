@@ -7,9 +7,8 @@
 
 void reprap_wifi_send_gcode(char *gcode);
 void request_filaments();
-void request_macros();
-void request_jobs_async(char *folder_path);
-void request_macros_async(char *folder_path);
 void reprap_send_gcode(char *gcode_command);
+
+void process_reprap_filelist(char *buffer);
 
 #endif //LVGL_REPPANEL_REQUEST_H

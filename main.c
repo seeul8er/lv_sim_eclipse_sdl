@@ -22,6 +22,7 @@
 #include "lv_examples/lv_apps/demo/demo.h"
 #include "lv_examples/lv_apps/benchmark/benchmark.h"
 #include "lv_examples/lv_examples.h"
+#include "RepPanel/rrf_objects.h"
 
 
 /*********************
@@ -50,14 +51,18 @@ static void memory_monitor(lv_task_t * param);
  *  STATIC VARIABLES
  **********************/
 
+double reprap_chamber_temp_buff[NUM_TEMPS_BUFF] = {0};
+int reprap_chamber_temp_curr_pos = 0;
+double reprap_babysteps_amount = 0.05;
+double reprap_move_feedrate = 6000;
+double reprap_mcu_temp = 0;
+char reprap_firmware_name[32];
+char reprap_firmware_version[5];
+
 reprap_tool_t reprap_tools[MAX_NUM_TOOLS];
 reprap_bed_t reprap_bed;
 reprap_tool_poss_temps_t reprap_tool_poss_temps;
 reprap_bed_poss_temps_t reprap_bed_poss_temps;
-double reprap_mcu_temp = 0;
-char reprap_firmware_name[100];
-char reprap_firmware_version[5];
-char *reprap_macro_names[MAX_NUM_MACROS];
 double reprap_extruder_amounts[NUM_TEMPS_BUFF];
 double reprap_extruder_feedrates[NUM_TEMPS_BUFF];
 
@@ -93,7 +98,7 @@ int main(int argc, char ** argv)
     /*Try the touchpad-less navigation (use the Tab and Arrow keys or the Mousewheel)*/
     //    lv_test_group_1();
 
-    init_reprap_buffers();
+    init_reprap_model();
 
     while(1) {
         /* Periodically call the lv_task handler.

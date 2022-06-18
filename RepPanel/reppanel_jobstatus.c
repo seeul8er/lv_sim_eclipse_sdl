@@ -7,14 +7,13 @@
 #include <lvgl/src/lv_objx/lv_cont.h>
 #include <lvgl/src/lv_objx/lv_page.h>
 #include <lvgl/lvgl.h>
-#include <RepPanel/custom_themes/lv_theme_rep_panel_light.h>
+#include "custom_themes/lv_theme_rep_panel_dark.h"
 #include "reppanel.h"
 #include "reppanel_request.h"
 
 #define TAG "JobStatus"
 
-double reprap_job_percent;
-int reprap_job_file_pos;
+float reprap_job_percent;
 double reprap_job_duration;
 int reprap_job_curr_layer;
 char current_job_name[MAX_FILA_NAME_LEN];

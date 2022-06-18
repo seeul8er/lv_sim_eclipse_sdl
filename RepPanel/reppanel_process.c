@@ -4,12 +4,13 @@
 
 #include <stdio.h>
 #include <lvgl/src/lv_core/lv_obj.h>
-#include <RepPanel/custom_themes/lv_theme_rep_panel_light.h>
+#include "custom_themes/lv_theme_rep_panel_dark.h"
 #include <lvgl/src/lv_core/lv_style.h>
 #include <stdlib.h>
 #include "reppanel_process.h"
 #include "reppanel.h"
 #include "reppanel_request.h"
+#include "reppanel_helper.h"
 
 lv_obj_t *label_bed_temp;
 lv_obj_t *btn_bed_temp_active;
@@ -234,7 +235,7 @@ static void set_bed_temp_status_event_handler(lv_obj_t *obj, lv_event_t event) {
                 map_indx++;
             }
             if (temps[i] > 0) {
-                sprintf(txt[i], "%.0f°%c", temps[i], get_temp_unit());
+                sprintf(txt[i], "%.0f°%c", temps[i], 'C');
                 temp_map_tmp[map_indx] = txt[i];
             } else {
                 temp_map_tmp[map_indx] = "";
@@ -305,7 +306,7 @@ static void set_bed_temp_status_event_handler(lv_obj_t *obj, lv_event_t event) {
     }
 }
 
-static void _filament_change_event(lv_obj_t *obj, lv_event_t event) {
+static void filament_change_event(lv_obj_t *obj, lv_event_t event) {
     if (event == LV_EVENT_CLICKED) {
         cont_fila_overlay = lv_cont_create(lv_layer_top(), NULL);
         static lv_style_t somestyle;
@@ -319,7 +320,7 @@ static void _filament_change_event(lv_obj_t *obj, lv_event_t event) {
         somestyle.body.padding.inner = LV_DPI / 9;
         lv_cont_set_style(cont_fila_overlay, LV_CONT_STYLE_MAIN, &somestyle);
 
-        lv_cont_set_fit2(cont_fila_overlay, LV_FIT_FILL, LV_FIT_TIGHT);
+        lv_cont_set_fit2(cont_fila_overlay, LV_FIT_FILL, LV_FIT_FLOOD);
         lv_cont_set_layout(cont_fila_overlay, LV_LAYOUT_PRETTY);
         lv_obj_align_origo(cont_fila_overlay, NULL, LV_ALIGN_CENTER, 0, -120);
 
@@ -334,6 +335,7 @@ static void _filament_change_event(lv_obj_t *obj, lv_event_t event) {
         lv_ddlist_set_options(ddlist_selected_filament, filament_names);
         lv_ddlist_set_draw_arrow(ddlist_selected_filament, true);
         lv_ddlist_set_fix_height(ddlist_selected_filament, 150);
+        lv_ddlist_set_fix_width(ddlist_selected_filament, 250);
         lv_ddlist_set_sb_mode(ddlist_selected_filament, LV_SB_MODE_AUTO);
 
         lv_obj_t *cont2 = lv_cont_create(cont_filament, NULL);
@@ -453,7 +455,7 @@ void draw_process(lv_obj_t *parent_screen) {
     label_tool_temp_standby = lv_label_create(btn_tool_temp_standby, NULL);
     lv_label_set_text(label_tool_temp_standby, "10°C");
 
-    create_button(holder3, button_tool_filament, "Filament", _filament_change_event);
+    create_button(holder3, button_tool_filament, "Filament", filament_change_event);
 
     // light big font for current temps
     static lv_style_t style_label;

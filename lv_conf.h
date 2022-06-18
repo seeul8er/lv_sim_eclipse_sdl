@@ -289,7 +289,7 @@ typedef void * lv_indev_drv_user_data_t;            /*Type of user data in the i
 #define LV_USE_THEME_MATERIAL   1   /*Flat theme with bold colors and light shadows*/
 #define LV_USE_THEME_ZEN        1   /*Peaceful, mainly light theme */
 #define LV_USE_THEME_NEMO       1   /*Water-like theme based on the movie "Finding Nemo"*/
-#define LV_USE_THEME_REP_PANEL_LIGHT    1
+#define LV_USE_THEME_REP_PANEL_DARK    1
 
 /*==================
  *    FONT USAGE
